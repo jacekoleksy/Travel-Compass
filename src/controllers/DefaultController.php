@@ -12,11 +12,19 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function about_us()
+    public function compass()
     {
-        $_SESSION["questionnumber"] = 1;
-        $this->cookieNotExists();
+        // $this->cookieExists();
 
-        $this->render('about_us');
+        // $this->render('compass');
+        return $this->render('compass');
     }
+
+    // public function about_us()
+    // {
+    //     $_SESSION["questionnumber"] = 1;
+    //     $this->cookieNotExists();
+
+    //     $this->render('about_us');
+    // }
 }

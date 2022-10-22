@@ -1,6 +1,6 @@
 <?php
 
-require_once "config.php";
+require_once "dbconfig.php";
 
 class Database {
     private $username;
