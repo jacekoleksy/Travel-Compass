@@ -1,0 +1,36 @@
+@font-face {
+    font-family: Biko-Black;
+    src: url(../font/biko_black.otf);
+}
+@font-face {
+    font-family: Biko-Bold;
+    src: url(../font/biko_bold.otf);
+}
+@font-face {
+    font-family: Biko-Light;
+    src: url(../font/biko_light-restricted.otf);
+}
+@font-face {
+    font-family: Biko-Regular;
+    src: url(../font/biko_regular.otf);
+}
+@font-face {
+    font-family: Ogonek-Bold;
+    src: url(../font/ogonek_bold.ttf);
+}
+@font-face {
+    font-family: Ogonek-Regular;
+    src: url(../font/ogonek_regular.ttf);
+}
+@font-face {
+    font-family: Ogonek-Light;
+    src: url(../font/ogonek_light.ttf);
+}
+@font-face {
+    font-family: Ogonek-Unicase;
+    src: url(../font/ogonek_unicase.ttf);
+}
+@font-face {
+    font-family: "Avenir";
+    src: url(../font/avenir_medium.otf);
+}
