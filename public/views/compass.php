@@ -22,11 +22,11 @@
             <!-- <div>
                 <img id="logo" src="public/img/logo_mini.png">
             </div> -->
-            <p>About</p>
-            <p>Explore</p>
-            <img id="logo" src="public/img/logo_mini.png">
-            <p>Examples</p>
-            <p>Sign In</p>
+            <a href=""><p>About</p></a>
+            <a href=""><p>Explore</p></a>
+            <a href="compass"><img id="logo" src="public/img/logo_mini.png"></a>
+            <a href=""><p>Examples</p></a>
+            <a href=""><p>Sign In</p></a>
         </div>
         <div class="logo">
             <div class="logo_image">
@@ -49,17 +49,17 @@
             <div id="choice_1">
                 <div></div>
                 <!-- <img src="public/img/1 (12).jpg"> -->
-                <h3>Ultra fast</h3><p>Based on weather</p>
+                <h3>Fast</h3><p>Based on temperature and prices</p>
             </div>
             <div id="choice_2">
                 <div></div>
                 <!-- <img src="public/img/1 (16).jpg"> -->
-                <h3>Fast</h3><p>10 questions</p>
+                <h3>Standard</h3><p>Based on 10 questions</p>
             </div>
             <div id="choice_3">
                 <div></div>
                 <!-- <img src="public/img/1 (14).jpg"> -->
-                <h3>Accurate</h3><p>50 questions</p>
+                <h3>Accurate</h3><p>Based on 50 questions</p>
             </div>
         </div>
     </div>
