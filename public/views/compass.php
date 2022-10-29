@@ -47,13 +47,19 @@
         <p>Just answer few questions, and we will make sure that these one or two minutes will give you <span>days of unforgettable experiences.</span></p>
         <div class="choice">
             <div id="choice_1">
-        
+                <div></div>
+                <!-- <img src="public/img/1 (12).jpg"> -->
+                <h3>Ultra fast</h3><p>Based on weather</p>
             </div>
             <div id="choice_2">
-
+                <div></div>
+                <!-- <img src="public/img/1 (16).jpg"> -->
+                <h3>Fast</h3><p>10 questions</p>
             </div>
             <div id="choice_3">
-
+                <div></div>
+                <!-- <img src="public/img/1 (14).jpg"> -->
+                <h3>Accurate</h3><p>50 questions</p>
             </div>
         </div>
     </div>
