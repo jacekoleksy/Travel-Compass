@@ -18,16 +18,7 @@
         <div class="background">
             <img src="public/img/1 (9).jpg">
         </div>
-        <div class="nav">
-            <!-- <div>
-                <img id="logo" src="public/img/logo_mini.png">
-            </div> -->
-            <a href=""><p>About</p></a>
-            <a href=""><p>Explore</p></a>
-            <a href="compass"><img id="logo" src="public/img/logo_mini.png"></a>
-            <a href=""><p>Examples</p></a>
-            <a href=""><p>Sign In</p></a>
-        </div>
+        <?php include_once('nav.php'); ?>
         <div class="logo">
             <div class="logo_image">
                 <img src="public/img/logo_new.png">
@@ -40,12 +31,11 @@
         </div>
     </div>
     <div class="container">
-        <h2>Explore the World<!--- with us <span>🤍</span>/* --->
-        </h2>
+        <h2>Explore the World<!--- with us <span>🤍</span>/* ---></h2>
         <p>Are you looking for the <span>perfect vacation destination</span> and don't want to browse through <span>thousands of videos</span> and articles?</p>
         <p><span>That's what we're here for!</span></p>
         <p>Just answer few questions, and we will make sure that these one or two minutes will give you <span>days of unforgettable experiences.</span></p>
-        <div class="choice">
+        <div id="choice">
             <div id="choice_1">
                 <div></div>
                 <!-- <img src="public/img/1 (12).jpg"> -->
@@ -62,6 +52,21 @@
                 <h3>Accurate</h3><p>Based on 50 questions</p>
             </div>
         </div>
+        <h2>Results<!--- with us <span>🤍</span>/* ---></h2>
+        <p>Here you can find all of <span>our possible results,</span> or outcomes related to your previous form completion.</p>
+        <div class="result">
+            <div id="result_1">
+                <div></div>
+                <!-- <img src="public/img/1 (12).jpg"> -->
+                <h3>Our Results</h3><p>All of the possible outcomes</p>
+            </div>
+            <div id="result_2">
+                <div></div>
+                <!-- <img src="public/img/1 (16).jpg"> -->
+                <h3>Your Results</h3><p>After the holidays, check if our results were correct</p>
+            </div>
+        </div>
     </div>
+    <?php include_once('footer.php'); ?>
     <script type="text/javascript" src="public/js/compass.js"></script> 
 </body>
