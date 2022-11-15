@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/compass.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script type="text/javascript" src="public/js/compass.js"></script> 
-    <title>Travel Compass</title>
+    <title>Travell Compass</title>
 </head>
 
 <body>
@@ -52,21 +52,6 @@
                 <h3>Accurate</h3><p>Based on 50 questions</p>
             </div>
         </div>
-        <h2>Results<!--- with us <span>🤍</span>/* ---></h2>
-        <p>Here you can find all of <span>our possible results,</span> or outcomes related to your previous form completion.</p>
-        <div class="result">
-            <div id="result_1">
-                <div></div>
-                <!-- <img src="public/img/1 (12).jpg"> -->
-                <h3>Our Results</h3><p>All of the possible outcomes</p>
-            </div>
-            <div id="result_2">
-                <div></div>
-                <!-- <img src="public/img/1 (16).jpg"> -->
-                <h3>Your Results</h3><p>After the holidays, check if our results were correct</p>
-            </div>
-        </div>
-    </div>
     <?php include_once('footer.php'); ?>
     <script type="text/javascript" src="public/js/compass.js"></script> 
 </body>

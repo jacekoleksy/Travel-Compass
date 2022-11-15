@@ -144,10 +144,6 @@ video {
     flex-direction: column;
     text-align: center;
 }
-.container > h2 {
-    font-size: 5vh;
-    font-family: Avenir;
-}
 .container > h2:nth-child(1) {
     margin-top: -9vh;
 }
@@ -157,13 +153,6 @@ video {
         font-size: 7vh;
         margin-bottom: 0;
     }
-}
-.container > p {
-    font-family: Ogonek-Regular;
-    font-size: 1.5vh;
-    width: 30%;
-    justify-content: center;
-    margin: 0.5vh 0.5vw;
 }
 @media only screen and (max-device-width: 1050px) {
     .container > p {
@@ -175,25 +164,20 @@ video {
         font-size: 0.8vh;
     }
 }
-.container > p > span {
-    background: -webkit-linear-gradient(left, #fdc85f, #eb3e65);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.container > #choice, .container > .result {
+.container > #choice {
     display: inline-flex;
     justify-content: center;
     width: 100%;
     margin-top: 5vh;
 }
 @media only screen and (max-device-width: 1050px) {
-    .container > #choice, .container > .result {
+    .container > #choice {
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
 }
-.container > #choice > div, .container > .result > div {
+.container > #choice > div {
     margin: 1% 1%;
     width: 20vw;
     height: 55vh;
@@ -203,48 +187,44 @@ video {
     transition: transform 0.6s ease-in-out;
     transform: scale(1);
 }
-.container > #choice > div:hover, .container > .result > div:hover {
+.container > #choice > div:hover {
     transform: scale(1.05);
 }
-.container > #choice > div > div, .container > .result > div > div {
+.container > #choice > div > div {
     content: '';
     position: absolute;
     left: 0; top: 0;
     width: 100%; height: 100%;
     border-radius: 0.5vw;
 }
-.container > #choice > #choice_1 > div, .container > .result > #result_1 > div {
+.container > #choice > #choice_1 > div {
     background: -webkit-linear-gradient(left, rgba(25,84,90,0.4) 0%, rgba(250,170,99,0.4) 100%);
 }
-.container > #choice > #choice_2 > div, .container > .result > #result_2 > div {
+.container > #choice > #choice_2 > div {
     background: -webkit-linear-gradient(left, rgba(250,170,99,0.4) 0%, rgba(199,121,207,0.4) 100%);
 }
 .container > #choice > #choice_3 > div {
     background: -webkit-linear-gradient(left, rgba(255,83,251,0.3) 0%, rgba(0,212,255,0.3) 100%);
 }
-.container > #choice > div, .container > .result > div {
+.container > #choice > div {
     width: 19.9vw;
     height: 26.95vw;
     background-size: cover;
     background-position: center;
     border-radius: 0.5vw;
 }
-.container > #choice > #choice-left, .container > #choice > #choice-right{
+.container > #choice > #choice-left {
     visibility: hidden;
     position: absolute;
 }
 @media only screen and (max-device-width: 1050px) {
-    .container > #choice, .container > .result {
+    .container > #choice {
         overflow: scroll;
     }
-    .container > #choice > div, .container > .result > div {
+    .container > #choice > div {
         width: 80vw;
         height: 66.9vh;
         background-repeat: no-repeat;
-    }
-    .container > .result > div {
-        height: 66.9vh;
-        width: 80vw !important;
     }
     .container > #choice > #choice_1 {
         position: relative;
@@ -257,15 +237,7 @@ video {
         position: relative;
         margin-right: -120vw;
     }
-    .container > .result > #result_1 {
-        position: relative;
-        margin-left: 15vw;
-    }
-    .container > .result > #result_2 {
-        position: relative;
-        margin-right: -60vw;
-    }
-    .container > #choice > div:hover, .container > .result > div:hover {
+    .container > #choice > div:hover {
         transform: scale(1.02);
     }
 }
@@ -282,21 +254,6 @@ video {
         position: relative;
         margin-right: -170vw;
     }
-    .container > .result > div {
-        width: 150vw !important;
-        height: 30vh;
-    }
-    .container > .result > #result_1 {
-        position: relative;
-        margin-left: 5vw;
-    }
-    .container > .result > #result_2 {
-        position: relative;
-        margin-right: -80vw;
-    }
-}
-.container > .result > div {
-    width: 30.5vw;
 }
 .container > #choice > #choice_1 {
     background-image: url("../img/1 (12).jpg");
@@ -307,13 +264,7 @@ video {
 .container > #choice > #choice_3{
     background-image: url("../img/1 (14).jpg");
 }
-.container > .result > #result_1 {
-    background-image: url("../img/1 (17).jpg");
-}
-.container > .result > #result_2 {
-    background-image: url("../img/1 (18).jpg");
-}
-.container > #choice > div > h3, .container > .result > div > h3 {
+.container > #choice > div > h3 {
     font-size: 4vh;
     position: relative;
     z-index: 1;
@@ -322,10 +273,7 @@ video {
     margin-bottom: 0;
     margin-top: 5vh;
 }
-.container > .result > div > * {
-    color: white !important;
-}
-.container > #choice > div > p, .container > .result > div > p {
+.container > #choice > div > p {
     font-size: 2vh;
     position: relative;
     z-index: 2;

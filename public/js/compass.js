@@ -7,6 +7,3 @@ var typed3 = new Typed(".random_3", {
     loop: true,
     cursorChar: '|'
 })
-function slideLeft(){
-    document.getElementById("choice").style.marginLeft = "-50vh"; 
-}

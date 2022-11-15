@@ -19,6 +19,11 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
+    public function questions()
+    {
+        $this->render('questions');
+    }
+
     // public function about_us()
     // {
     //     $_SESSION["questionnumber"] = 1;
