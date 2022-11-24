@@ -16,7 +16,7 @@ class DefaultController extends AppController {
     {
         // $this->cookieExists();
 
-        $this->render('login');
+        $this->render('index');
     }
 
     public function questions()

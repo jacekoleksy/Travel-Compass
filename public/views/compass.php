@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/nav.css">
     <link rel="stylesheet" type="text/css" href="public/css/compass.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script type="text/javascript" src="public/js/compass.js"></script> 
     <title>Travell Compass</title>
 </head>
 
@@ -16,42 +15,65 @@
         <div id="video">
         </div> -->
         <div class="background">
-            <img src="public/img/1 (9).jpg">
+            <img src="public/img/1 (20).jpg">
         </div>
         <?php include_once('nav.php'); ?>
-        <div class="logo">
-            <div class="logo_image">
-                <img src="public/img/logo_new.png">
-            </div>
-            <div class="logo_text">
-                <h1 class="random1"><span class="random_1">Find.</span></h1>
-                <h1 class="random2"><span class="random_2">Visit.</span></h1>
-                <h1 class="random3"><span class="random_3"></span></h1>
-            </div>
-        </div>
     </div>
     <div class="container">
-        <h2>Explore the World<!--- with us <span>🤍</span>/* ---></h2>
-        <p>Are you looking for the <span>perfect vacation destination</span> and don't want to browse through <span>thousands of videos</span> and articles?</p>
-        <p><span>That's what we're here for!</span></p>
-        <p>Just answer few questions, and we will make sure that these one or two minutes will give you <span>days of unforgettable experiences.</span></p>
-        <div id="choice">
-            <div id="choice_1">
-                <div></div>
-                <!-- <img src="public/img/1 (12).jpg"> -->
-                <h3>Fast</h3><p>Based on temperature and prices</p>
-            </div>
-            <div id="choice_2">
-                <div></div>
-                <!-- <img src="public/img/1 (16).jpg"> -->
-                <h3>Standard</h3><p>Based on 10 questions</p>
-            </div>
-            <div id="choice_3">
-                <div></div>
-                <!-- <img src="public/img/1 (14).jpg"> -->
-                <h3>Accurate</h3><p>Based on 50 questions</p>
-            </div>
+        <div class="form">
+            <h1>Standard Form</h1>
+            <form class="compass" method="POST">
+                <h2>Question <span class='current_question'><?php echo $currentquestion;?></span> of <?php echo $questionnum;?></h2>
+                <p class="current_title"><?php echo $questiontitle ?></p>
+                <div class="buttons">
+                    <button type="button" value=-2 name="opinion">Strongly Disagree</button>
+                    <button type="button" value=-1 name="opinion">Disagree</button>
+                    <button type="button" value=0 name="opinion">No Opinion</button>
+                    <button type="button" value=1 name="opinion">Agree</button>
+                    <button type="button" value=2 name="opinion">Strongly Agree</button>
+                </div>
+                <div class="range">
+                    <label>1000zł</label>
+                    <input type="range" class="styled-slider slider-progress range1" name="range" min=1000 max=5500 oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
+                    <label>5500zł</label>
+                    <output class="output"></output>
+                    <script type="text/javascript" src="public/js/slider.js"></script> 
+                </div>
+                <div class="checkboxes">
+                    <h2>Checkboxes</h2>
+                </div>
+                <input type="hidden" name='answers'></input>
+                <button class="prev" type="button" name="prev" style="display:none">Previous</button>
+                <a href="/compass"><button class="reset" type="button" name="reset">Reset</button></a>
+            </form>
         </div>
     <?php include_once('footer.php'); ?>
     <script type="text/javascript" src="public/js/compass.js"></script> 
 </body>
+<?php
+if ($questiontype == "buttons") {
+?>
+<style>
+    .buttons {
+        display: block;
+    }
+</style>
+<?php
+} else if ($questiontype == "range") {
+?>
+<style>
+    .range {
+        display: block;
+    }
+</style>
+<?php
+} else if ($questiontype == "checkboxes") {
+?>
+<style>
+    .checkboxes {
+        display: block;
+    }
+</style>
+<?php
+}
+?>
