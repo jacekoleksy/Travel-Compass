@@ -6,15 +6,14 @@ class DefaultController extends AppController {
 
     public function compass()
     {
-        // $this->cookieExists();
+        $this->cookieExists();
 
-        // $this->render('compass');
         $this->render('compass');
     }
 
     public function index()
     {
-        // $this->cookieExists();
+        //$this->cookieExists();
 
         $this->render('index');
     }

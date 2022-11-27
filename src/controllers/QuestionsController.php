@@ -18,10 +18,11 @@ class QuestionsController extends AppController {
     
     public function compass()
     {
-        //$this->cookieNotExists();
+        $this->cookieNotExists();
 
         if (!$this->isPost()) {
             $_SESSION["questionnumber"] = 1;
+            //$_SESSION["formtype"] = "Standard";
             $_SESSION["value_w"] = 0;
             $_SESSION["value_h"] = 0;
         }
@@ -34,6 +35,7 @@ class QuestionsController extends AppController {
                 $_SESSION['value_w'] += intval($answers[$key]) * $quest['value_w'];  
             }
             $this->userRepository->addResult($_SESSION['user']);
+
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/results");
         } 
@@ -42,7 +44,49 @@ class QuestionsController extends AppController {
             header("Location: {$url}/results");
         }
 
-        return $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber'])]);
+        return $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+    }
+
+    public function fastform()
+    {
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        $_SESSION['formtype'] = 'Fast';
+
+        $this->cookieNotExists();
+        $this->cookieExists();
+
+        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+    }
+
+    public function standardform()
+    {
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        $_SESSION['formtype'] = 'Standard';
+
+        $this->cookieNotExists();
+        $this->cookieExists();
+
+        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+    }
+
+    public function accurateform()
+    {
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
+        $_SESSION['formtype'] = 'Accurate';
+
+        $this->cookieNotExists();
+        $this->cookieExists();
+
+        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
     }
 
     public function questions() {
@@ -52,7 +96,7 @@ class QuestionsController extends AppController {
     }
 
     public function answer() {
-        //$this->cookieNotExists();
+        $this->cookieNotExists();
 
         $answer = json_decode(file_get_contents('php://input'));
         $this->compass_action($answer->idq, $answer->value);

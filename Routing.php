@@ -25,7 +25,7 @@ class Router {
 
     $controller = self::$routes[$action];
     $object = new $controller;
-    $action = $action ?: 'compass';
+    $action = $action ?: 'index';
 
     $object->$action();
   }

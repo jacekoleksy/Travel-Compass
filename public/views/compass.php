@@ -21,7 +21,7 @@
     </div>
     <div class="container">
         <div class="form">
-            <h1>Standard Form</h1>
+            <h1><?php echo $formtype;?> Form</h1>
             <form class="compass" method="POST">
                 <h2>Question <span class='current_question'><?php echo $currentquestion;?></span> of <?php echo $questionnum;?></h2>
                 <p class="current_title"><?php echo $questiontitle ?></p>
@@ -45,6 +45,7 @@
                 <input type="hidden" name='answers'></input>
                 <button class="prev" type="button" name="prev" style="display:none">Previous</button>
                 <a href="/compass"><button class="reset" type="button" name="reset">Reset</button></a>
+                <button class="next" type="button" name="next" style="display:none">Next</button>
             </form>
         </div>
     <?php include_once('footer.php'); ?>

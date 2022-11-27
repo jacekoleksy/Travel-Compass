@@ -6,14 +6,22 @@ class Questions extends Repository
 {
     public function getNumberOfQuestions(): ?int
     {
-        $stmt = $this->database->connect()->prepare('
-            SELECT count(*) FROM questions
-        ');
-        $stmt->execute();
+        if ($_SESSION['formtype'] == 'Fast') 
+            $number = 2;
+        else if ($_SESSION['formtype'] == 'Standard')
+            $number = 10;
+        else {
+            $stmt = $this->database->connect()->prepare('
+                SELECT count(*) FROM questions
+            ');
+            $stmt->execute();
 
-        $numberofquesitons = $stmt->fetch(PDO::FETCH_ASSOC);
+            $numberofquesitons = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $numberofquesitons['count'];
+            $number = $numberofquesitons['count'];
+        }
+
+        return $number;
     }
 
     public function getQuestionTitle(int $idq): ?string

@@ -1,14 +1,14 @@
 <h2>Results<!--- with us <span>🤍</span>/* ---></h2>
         <p>Here you can find all of <span>our possible results,</span> or outcomes related to your previous form completion.</p>
         <div class="result">
-            <div id="result_1">
+            <div id="result_1" onclick="location.href='/recommended';">
                 <div></div>
                 <!-- <img src="public/img/1 (12).jpg"> -->
                 <h3>Our Results</h3><p>All of the possible outcomes</p>
                 <p><span>Our results</span> are based on the opinion of <span>experts</span> and (importantly) <span>thousands of tourists.</span> Price and temperature data is also <span>updated daily,</span> ensuring that the results are always accurate.
                 <br><br>Browse through the suggestions to check them all out and get inspired if you're not satisfied with the results.</p>
             </div>
-            <div id="result_2">
+            <div id="result_2" onclick="location.href='/results';">
                 <div></div>
                 <!-- <img src="public/img/1 (16).jpg"> -->
                 <h3>Your Results</h3><p>After the holidays, check if our results were correct</p>
@@ -29,8 +29,8 @@
 <div class="footer">
     <p>&copy; Travell Compass, Jacek Oleksy PK. All rights reserved.</p>
     <p id="break">|</p>
-    <a href=""><p>ABOUT</p></a>
-    <a href=""><p>EXPLORE</p></a>
-    <a href=""><p>EXAMPLES</p></a>
-    <a href=""><p>SIGN IN</p></a>
+    <a href="/about_us"><p>ABOUT</p></a>
+    <a href="/compass"><p>EXPLORE</p></a>
+    <a href="/recommended"><p>EXAMPLES</p></a>
+    <a href="/login"><p>SIGN IN</p></a>
 </div>

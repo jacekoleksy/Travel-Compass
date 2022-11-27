@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async function(){
   const questions = await fun();
-  const buttons = [...document.querySelectorAll('.buttons button')];
+  const buttons = [...document.querySelectorAll('.buttons button, .next')];
   var questionAnswer = [];
   var currentQuestion = 0;
   const span = document.querySelector('.current_question');
@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', async function(){
           document.querySelector(".range").style.display = "none";
           document.querySelector(".checkboxes").style.display = "none";
           document.querySelector("."+type).style.display = "block";
+          if (type != "buttons") {
+            document.querySelector(".next").style.display = "inline-block";
+          }
       })
   }) 
   document.querySelector(".prev").addEventListener('click', function(){
@@ -45,7 +48,11 @@ document.addEventListener('DOMContentLoaded', async function(){
       document.querySelector(".buttons").style.display = "none";
       document.querySelector(".range").style.display = "none";
       document.querySelector(".checkboxes").style.display = "none";
+      document.querySelector(".next").style.display = "none";
       document.querySelector("."+type).style.display = "block";
+      if (type != "buttons") {
+        document.querySelector(".next").style.display = "inline-block";
+      }
 
       if (currentQuestion <= 0) {
           document.querySelector(".prev").style.display = "none";

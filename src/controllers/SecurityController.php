@@ -21,7 +21,10 @@ class SecurityController extends AppController {
             session_start();
         }
 
+        $this->cookieExists();
+
         $_SESSION["questionnumber"] = 1;
+        $_SESSION["formtype"] = "Standard";
 
         if (!$this->isPost()) {
             return $this->render('login');
@@ -111,5 +114,21 @@ class SecurityController extends AppController {
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/");
+    }
+
+    public function results()
+    {
+        $_SESSION["questionnumber"] = 1;
+        $this->cookieNotExists();
+
+        $results = $this->userRepository->showResult($_SESSION["user"]);
+
+        if (!$results) {
+            return $this->render('results', ['error' => ['no results', 'yet!', 'You need to complete Compass form first!']]);
+        }
+
+        unset($_SESSION['send']);
+
+        $this->render('results', ['results' => $results]);
     }
 }

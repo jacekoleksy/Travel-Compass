@@ -44,6 +44,7 @@ form > h2 {
 form > p {
     font-family: Ogonek-Regular;
     font-size: 1.8vh;
+    min-height: 5vh;
 }
 form > .buttons > button:nth-child(1), .reset  {
     background: transparent linear-gradient(120deg, #c04a4a 0%, #f61011 100%) 0% 0% no-repeat padding-box;
@@ -57,7 +58,7 @@ form > .buttons > button:nth-child(3) {
 form > .buttons > button:nth-child(4) {
     background: transparent linear-gradient(120deg, #229e03 0%, #7ffa00 100%) 0% 0% no-repeat padding-box;
 }
-form > .buttons > button:nth-child(5){
+form > .buttons > button:nth-child(5), .next{
     background: transparent linear-gradient(120deg, #229e03 0%, #115700 100%) 0% 0% no-repeat padding-box;
 }
 form > .buttons > button, button {
@@ -65,7 +66,7 @@ form > .buttons > button, button {
     font-size: 1.7vh;
     border: none;
     border-radius: 0.5vw;
-    width: 9vw;
+    min-width: 8vw;
     height: 5vh;
     margin: 1vh 0.5vw;
     background-size: 200% auto !important;
@@ -76,6 +77,7 @@ form > .buttons > button:hover {
 }
 .buttons, .range, .checkboxes {
     display: none;
+    min-height: 15vh;
 }
 form > .range > input[type=range] {
     width: 15vw;

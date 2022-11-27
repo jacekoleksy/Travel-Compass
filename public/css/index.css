@@ -133,6 +133,13 @@ video {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.random_3 {
+    position: static !important;
+}
+.typed-cursor {
+    animation: blink 0.7s infinite !important;
+    -webkit-animation: blink 0.7s infinite !important;
+}
 .container {
     background-color: black;
     width: 100%;

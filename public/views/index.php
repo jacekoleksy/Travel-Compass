@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/nav.css">
     <link rel="stylesheet" type="text/css" href="public/css/index.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script type="text/javascript" src="public/js/index.js"></script> 
     <title>Travell Compass</title>
 </head>
 
@@ -36,22 +35,22 @@
         <p><span>That's what we're here for!</span></p>
         <p>Just answer few questions, and we will make sure that these one or two minutes will give you <span>days of unforgettable experiences.</span></p>
         <div id="choice">
-            <div id="choice_1">
+            <div id="choice_1" onclick="location.href='/fastform';">
                 <div></div>
                 <!-- <img src="public/img/1 (12).jpg"> -->
                 <h3>Fast</h3><p>Based on temperature and prices</p>
             </div>
-            <div id="choice_2">
+            <div id="choice_2"onclick="location.href='/standardform';">
                 <div></div>
                 <!-- <img src="public/img/1 (16).jpg"> -->
                 <h3>Standard</h3><p>Based on 10 questions</p>
             </div>
-            <div id="choice_3">
+            <div id="choice_3"onclick="location.href='/accurateform';">
                 <div></div>
                 <!-- <img src="public/img/1 (14).jpg"> -->
                 <h3>Accurate</h3><p>Based on 50 questions</p>
             </div>
         </div>
     <?php include_once('footer.php'); ?>
-    <script type="text/javascript" src="public/js/compass.js"></script> 
+    <script type="text/javascript" src="public/js/index.js"></script> 
 </body>
