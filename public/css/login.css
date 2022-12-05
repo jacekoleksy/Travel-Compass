@@ -1,0 +1,117 @@
+.login-container {
+    margin-top: -10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15vh;
+    font-family: Avenir;
+}
+.login-container > hr {
+    margin: 0vh 5vw;
+}
+.login-container > form {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    justify-content: center;
+    align-items: center;
+}
+.login-container > form > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container > form > div > input {
+    width: 6vw;
+    margin: 1vh 0.5vw;
+}
+.login {
+    padding: 5vh 0vw;
+}
+form > h1 {
+    text-align: center;
+    font-size: 3.5vh;
+}
+form > input, form > div > input, li > input {
+    padding: 0.7vh 1vw;
+    margin: 1.2vh 0vw;
+    width: 15vw;
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 0.1vw solid transparent;
+    border-radius: 25vw;
+    font-size: 1.5vh;
+    color: white;
+    background: linear-gradient(black, black) padding-box, linear-gradient(to right, #FDC85F, #EB3E65) border-box;
+}
+ul {
+    list-style: none;
+    padding: 0vh 2vw;
+}
+ul > h2 {
+    text-align: center;
+    margin-top: 3vh;
+}
+li {
+    text-align: center;
+}
+li > h3 {
+    margin: 0;
+}
+hr {
+    background-image: linear-gradient(to bottom, #FDC85F, #EB3E65);
+    border: 0;
+    width: 0.15vw;
+    
+}
+.terms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.terms > h2 {
+    font-size: 2vh;
+}
+.terms > input {
+    width: 1vw !important;
+    height: 1vw !important;
+}
+button {
+    margin-top: 1vh;
+    font-family: Ogonek-Regular;
+    letter-spacing: 0.4vw;
+    font-size: 2vh;
+    border: none;
+    min-width: 10vw;
+    min-height: 4vh;
+    padding: 1.5vh 2.5vw;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(-45deg, #FDC85F 0%, #EB3E65  51%, #FDC85F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.login:nth-child(1) > button {
+    margin-top: 2vh;
+}
+button:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+button:active {
+    transform: scale(0.95);
+}
+.terms > h2 > a {
+    background: -webkit-linear-gradient(left, #fdc85f, #eb3e65);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/nav.css">
     <link rel="stylesheet" type="text/css" href="public/css/results.css"> 
+    <link rel="stylesheet" type="text/css" href="public/css/recommended.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://kit.fontawesome.com/d4ded950a9.js" crossorigin="anonymous"></script>
     <title>Travell Compass</title>
@@ -16,13 +17,13 @@
         <div id="video">
         </div> -->
         <div class="background">
-            <?php if(isset($results)){
+            <?php if(isset($recommended)){
                 $count = 0;
-                foreach ($results as $result) {
+                foreach ($recommended as $recommend) {
                     if ($count == 0) { ?>
-                        <img id="active-bcg" src=<?php echo "public/img/results/".$results[$count]['id_results'].".jpg" ?>>
+                        <img id="active-bcg" src=<?php echo "public/img/results/".$recommend['id'].".jpg" ?>>
                     <?php } else { ?>
-                        <img id="not-active" src=<?php echo "public/img/results/".$results[$count]['id_results'].".jpg" ?>>
+                        <img id="not-active" src=<?php echo "public/img/results/".$recommend['id'].".jpg" ?>>
                 <?php } $count += 1; }} else { ?>
                 <img src="public/img/1 (23).jpg">
             <?php } ?>
@@ -33,64 +34,40 @@
         </div>
     </div>
     <div class="your-result">
-        <?php if(isset($results)){
+        <?php if(isset($recommended)){
                 $count = 0;
-                foreach ($results as $result) {
+                foreach ($recommended as $recommend) {
                     if ($count == 0) { ?>
                         <div class="data" id='active'>
-                    <?php } else { ?>
+                        <?php } else { ?>
                         <div class="data">
                         <?php } ?>
                             <div class="temperature">
-                                <h3><?php echo intval($result['result_temperature']) ?>°C</h3>
+                                <h3><?php echo intval($recommend['temperature']) ?>°C</h3>
                                 <img src="public/img/sun_black.png">
                             </div>
-                            <h1><?php echo strtoupper($result['name']) ?></h1>
-                            <h1><?php echo strtoupper($result['country']) ?></h1>
-                            <p><?php echo $result['description'] ?></p>
-                            <a href="#results-map"><button type="button" name="data" href="#results-map">PLAN YOUR TRIP</button></a>
+                            <h1><?php echo strtoupper($recommend['name']) ?></h1>
+                            <h1><?php echo strtoupper($recommend['country']) ?></h1>
+                            <p><?php echo $recommend['description'] ?></p>
+                            <a href="#results-map"><button type="button" name="data">PLAN YOUR TRIP</button></a>
                         </div>
-                <?php $count += 1; }} else { ?>
-                    <div class="data" id='active'>
-                        <h1><?php echo $error[0] ?></h1>
-                        <h1><?php echo $error[1] ?></h1>
-                        <p><?php echo $error[2] ?></p>
-                    </div>
-        <?php } ?>
+                        <?php $count += 1; }} else { ?>
+                        <div class="data" id='active'>
+                            <h1><?php echo $error[0] ?></h1>
+                            <h1><?php echo $error[1] ?></h1>
+                        </div>
+                        <?php } ?>
     </div>
-    <?php if(isset($results)){ 
+    <?php if(isset($recommended)){ 
         $count = 0;
-        foreach ($results as $result) { ?>
+        foreach ($recommended as $recommend) { ?>
             <?php if ($count == 0) { ?>
                     <div class="results-map" id="active">
                 <?php } else { ?>
                     <div class="results-map" id="results-map">
                 <?php } ?>    
-                    <iframe style="filter: invert(90%)" src=<?php echo $result['map'] ?> style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe style="filter: invert(90%)" src=<?php echo $recommend['map'] ?> style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="results-details">
-                        <table>
-                            <tr>
-                                <td colspan="3" id="title">
-                                    <h1>Your data:</h1>
-                                </td>
-                            </tr>
-                            <tr>  
-                                <td><h1>Activity factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_w'] ?>></input></td>
-                            </tr>
-                            <tr>  
-                                <td><h1>Price factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_h'] ?>></input></td>
-                            </tr>
-                            <tr>  
-                                <td><h1>Target temperature:</h1></td>
-                                <td class="table-data"><h1 id="temperature"><?php echo $result['user_temperature'] ?></h1></td>
-                            </tr>
-                            <tr>  
-                                <td><h1>Target price:</h1></td>
-                                <td class="table-data"><h1 id="price"><?php echo $result['user_price'] ?></h1></td>
-                            </tr>
-                        </table>
                         <table>
                             <tr>
                                 <td colspan="3" id="title">
@@ -99,15 +76,15 @@
                             </tr>
                             <tr>  
                                 <td><h1>Activity factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['result_value_w'] ?>></input></td>
+                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $recommend['value_w'] ?>></input></td>
                             </tr>
                             <tr>  
                                 <td><h1>Result temperature:</h1></td>
-                                <td class="table-data"><h1 id="temperature"><?php echo $result['result_temperature'] ?></h1></td>
+                                <td class="table-data"><h1 id="temperature"><?php echo $recommend['temperature'] ?></h1></td>
                             </tr>
                             <tr>  
                                 <td><h1>Result price:</h1></td>
-                                <td class="table-data"><h1 id="price"><?php echo $result['result_price'] ?></h1></td>
+                                <td class="table-data"><h1 id="price"><?php echo $recommend['price'] ?></h1></td>
                             </tr>
                         </table>
                         <p>
@@ -126,6 +103,8 @@
                 </div>
         <?php } ?>
     <div class="container">
+        <div class='no-results'><h1><?php echo $error[0] ?></h1>
+        <h2><?php echo $error[1]?><a href='/compass'><?php echo $error[2]?></a></h2></div> 
     <?php include_once('footer.php'); ?>
     <script type="text/javascript" src="public/js/results.js"></script> 
     <script type="text/javascript" src="public/js/slider.js"></script> 

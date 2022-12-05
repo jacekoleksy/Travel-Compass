@@ -48,7 +48,7 @@
             <div id="choice_3"onclick="location.href='/accurateform';">
                 <div></div>
                 <!-- <img src="public/img/1 (14).jpg"> -->
-                <h3>Accurate</h3><p>Based on 50 questions</p>
+                <h3>Accurate</h3><p>Based on 26 questions</p>
             </div>
         </div>
     <?php include_once('footer.php'); ?>

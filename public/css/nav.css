@@ -46,6 +46,14 @@
     font-family: Gobold-Thin;
     src: url(../font/gobold_thin.otf);
 }
+@font-face {
+    font-family: Gobold-Light;
+    src: url(../font/gobold_thin.otf);
+}
+@font-face {
+    font-family: Fulbo;
+    src: url(../font/fulbo.otf);
+}
 a {
     text-decoration: none;
 }
@@ -96,7 +104,7 @@ span > .in {
     padding: 2vh 0vw;
     margin: 0;
     font-size: 2vh;
-    font-family: Ogonek-Bold;
+    font-family: Fulbo;
     text-align: center;
     opacity: 1;
     color: white;
@@ -126,7 +134,14 @@ span > .in {
 .nav > .nav-rest {
     width: 80vw;
     display: inline-flex;
-    justify-content: right;
+    justify-content: center;
+}
+.nav {
+    /* background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5vw); */
+    position: fixed;
+    margin-top: -1vh;
+    z-index: 2;
 }
 .nav > .nav-rest > a > p {
     padding: 0vh 2vw;
@@ -135,7 +150,14 @@ span > .in {
     display: inline-flex;
     align-items: center;
     justify-content: left;
-    width: 25vw;
+    width: 15vw;
+    height: 6vh;
+}
+.nav > a:nth-child(3) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+    width: 15vw;
     height: 6vh;
 }
 .nav > a:nth-child(1) > p {
@@ -144,6 +166,13 @@ span > .in {
 .nav > a > #logo {
     padding: 2vh 0.5vw;
     width: 2.5vw;
+    transition: transform 3s;
+    margin: 0;
+    margin-bottom: 0;
+} 
+.nav > a > #user {
+    padding: 2vh 0.5vw;
+    width: 2vw;
     transition: transform 3s;
     margin: 0;
     margin-bottom: 0;

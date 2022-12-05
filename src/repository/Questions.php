@@ -7,7 +7,7 @@ class Questions extends Repository
     public function getNumberOfQuestions(): ?int
     {
         if ($_SESSION['formtype'] == 'Fast') 
-            $number = 2;
+            $number = 4;
         else if ($_SESSION['formtype'] == 'Standard')
             $number = 10;
         else {
@@ -78,6 +78,19 @@ class Questions extends Repository
         $numberofquesitons = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $numberofquesitons['type'];
+    }
+
+    public function getResultsType(): ?array
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT results_type FROM results_types
+            ORDER BY id_results_types ASC 
+        ');
+        $stmt->execute();
+
+        $resultstype = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultstype;
     }
 
     public function getAllQuestions(): ?array

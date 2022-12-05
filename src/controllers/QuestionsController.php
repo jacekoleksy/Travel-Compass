@@ -20,6 +20,10 @@ class QuestionsController extends AppController {
     {
         $this->cookieNotExists();
 
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
         if (!$this->isPost()) {
             $_SESSION["questionnumber"] = 1;
             //$_SESSION["formtype"] = "Standard";
@@ -31,8 +35,20 @@ class QuestionsController extends AppController {
             $questionValues = $this->questions->getQuestions();
             $answers = explode(',', $_POST['answers']);
             foreach ($questionValues as $key => $quest) {
-                $_SESSION['value_h'] += intval($answers[$key]) * $quest['value_h'];  
-                $_SESSION['value_w'] += intval($answers[$key]) * $quest['value_w'];  
+                if($key == 0)
+                    $_SESSION['price'] = intval($answers[$key])*31;
+                else if($key == 1)
+                    $_SESSION['temperature'] = intval($answers[$key]);
+                else if($key == 2)
+                    $_SESSION['results_t'] = intval($answers[$key]);
+                else if($key == 3) {
+                    if(intval($answers[$key]) <= 0)
+                        $_SESSION['results_t'] = 0;
+                }
+                else {
+                    $_SESSION['value_h'] += intval($answers[$key]) * $quest['value_h'];  
+                    $_SESSION['value_w'] += intval($answers[$key]) * $quest['value_w'];  
+                }
             }
             $this->userRepository->addResult($_SESSION['user']);
 
@@ -44,7 +60,17 @@ class QuestionsController extends AppController {
             header("Location: {$url}/results");
         }
 
-        return $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+        return $this->render('compass', [
+            'currentquestion' => $_SESSION['questionnumber'], 
+            'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']), 
+            'value_h2' => $this->questions->getHeightValue(2), 
+            'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
+            'value_w2' => $this->questions->getWidthValue(2), 
+            'questionnum' => $this->questions->getNumberOfQuestions(), 
+            'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 
+            'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 
+            'resultstype' => $this->questions->getResultsType(),
+            'formtype' => $_SESSION['formtype']]);
     }
 
     public function fastform()
@@ -90,12 +116,27 @@ class QuestionsController extends AppController {
     }
 
     public function questions() {
+        if (!isset($_SESSION)){
+            session_start();
+        }
         $que = $this->questions->getAllQuestions();
 
         echo json_encode($que);
     }
 
+    public function questionsnum() {
+        if (!isset($_SESSION)){
+            session_start();
+        }
+        $que = $this->questions->getNumberOfQuestions();
+
+        echo json_encode($que);
+    }
+
     public function answer() {
+        if (!isset($_SESSION)){
+            session_start();
+        }
         $this->cookieNotExists();
 
         $answer = json_decode(file_get_contents('php://input'));

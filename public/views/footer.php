@@ -22,15 +22,15 @@
             <p>Here you will find your previous <span>data-based results</span> if you have created an account. If they are not suitable, <span>you can rate them</span> and we will try to improve the search results for you in the future.
             <br><br>Don't hesitate to ask if something is unclear. Just write an email to <span><a href="mailto:info@travellcompass.com">info@travellcompass.com</a></span></p>
         </div>
-        <div class="footer_background">
+        <!-- <div class="footer_background">
             <img src="public/img/1 (21).jpg">
-        </div>
+        </div> -->
     </div>
 <div class="footer">
     <p>&copy; Travell Compass, Jacek Oleksy PK. All rights reserved.</p>
     <p id="break">|</p>
     <a href="/about_us"><p>ABOUT</p></a>
-    <a href="/compass"><p>EXPLORE</p></a>
-    <a href="/recommended"><p>EXAMPLES</p></a>
+    <a href="/compass"><p>RESULTS</p></a>
+    <a href="/recommended"><p>DESTINATIONS</p></a>
     <a href="/login"><p>SIGN IN</p></a>
 </div>

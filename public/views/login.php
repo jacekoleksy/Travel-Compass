@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>Travel Compass</title>
+    <link rel="stylesheet" type="text/css" href="public/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="public/css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <title>Log in/Sign in</title>
 </head>
 
 <body>
-    <h1>Hello</h1>
+    <div class="intro">
+        <!-- <video autoplay muted loop id="movie">
+            <source src="public/img/background1.mov" type="video/mp4" preload metadata>
+        </video>
+        <div id="video">
+        </div> -->
+        <div class="background">
+            <img src="public/img/1 (9).jpg">
+        </div>
+        <?php include_once('nav.php'); ?>
+        <div class="logo">
+            <div class="logo_image">
+                <img src="public/img/logo_new.png">
+            </div>
+            <div class="logo_text">
+                <h1 class="random1"><span class="random_1">Find.</span></h1>
+                <h1 class="random2"><span class="random_2">Visit.</span></h1>
+                <h1 class="random3"><span class="random_3"></span></h1>
+            </div>
+        </div>
+    </div>
     <div class="login-container">
-    <form class="login" action="/login" method="POST">
+        <form class="login" action="/login" method="POST">
         <h1>Login</h1>
             <div class="messages">
                 <?php
@@ -49,4 +72,7 @@
             <button type="submit" name="register">Sign in</button>
         </form>
     </div>
+    <div class="container">
+    <?php include_once('footer.php'); ?>
+    <script type="text/javascript" src="public/js/index.js"></script> 
 </body>

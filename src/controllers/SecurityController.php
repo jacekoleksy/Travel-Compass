@@ -24,7 +24,8 @@ class SecurityController extends AppController {
         $this->cookieExists();
 
         $_SESSION["questionnumber"] = 1;
-        $_SESSION["formtype"] = "Standard";
+        if (!isset($_SESSION["formtype"]))
+            $_SESSION["formtype"] = "Standard";
 
         if (!$this->isPost()) {
             return $this->render('login');
@@ -108,6 +109,70 @@ class SecurityController extends AppController {
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/compass");
     }
+
+    public function settings()
+    {
+        $_SESSION["questionnumber"] = 1;
+        $this->cookieNotExists();
+
+        $this->render('settings');
+    }
+
+    public function settings_action()
+    {
+        if (!$this->isPost()) {
+            return $this->render('settings');
+        }
+
+        $this->cookieNotExists();
+
+        $email = $_POST['settings-email'];
+        $password = $_POST['settings-password'];
+        $newpassword = $_POST['settings-new-password'];
+        $name = $_POST['settings-name'];
+        $surname = $_POST['settings-surname'];
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->render('settings', ['messages' => ["Wrong email type!"]]);
+        }
+
+        if ($email !== $_SESSION["user"]) {
+            if ($this->userRepository->getUser($email) != null) {
+                return $this->render('settings', ['messages' => ["User with this email already exists!"]]);
+            }
+        }
+
+        $user = $this->userRepository->getUser($_SESSION["user"]);
+        if (!password_verify($password, $this->userRepository->getPassword($user))) {
+            return $this->render('settings', ['messages' => ["Wrong current password!"]]);
+        }
+
+        if ($password == $newpassword) {
+            return $this->render('settings', ['messages' => ["Passwords are the same!"]]);
+        }
+
+        if ($name == null) {
+            return $this->render('settings', ['messages' => ["Your Name is necessarily!"]]);
+        }
+
+        if ($surname == null) {
+            return $this->render('settings', ['messages' => ["Your Surname is necessarily!"]]);
+        }
+
+        if ($newpassword !== "") {
+            $password = $newpassword;
+        }
+
+        $user = $this->userRepository->getUser($_SESSION["user"]);
+        $this->userRepository->editUser($user, $email, password_hash($password, PASSWORD_BCRYPT),  $name, $surname);
+
+        $_SESSION["user"] = $email;
+        $_SESSION["name"] = $name;
+        $_SESSION["surname"] = $surname;
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/settings");
+    }
     
     public function logout() {
         session_destroy();
@@ -118,17 +183,34 @@ class SecurityController extends AppController {
 
     public function results()
     {
+        if (!isset($_SESSION)){
+            session_start();
+        }
+
         $_SESSION["questionnumber"] = 1;
         $this->cookieNotExists();
 
         $results = $this->userRepository->showResult($_SESSION["user"]);
 
         if (!$results) {
-            return $this->render('results', ['error' => ['no results', 'yet!', 'You need to complete Compass form first!']]);
+            return $this->render('results', ['error' => ['No results', 'yet!', 'You need to complete Compass form first!']]);
         }
 
         unset($_SESSION['send']);
 
         $this->render('results', ['results' => $results]);
+    }
+
+    public function recommended()
+    {
+        $this->cookieNotExists();
+
+        $recommended = $this->userRepository->showRecommended($_SESSION["user"]);
+
+        if (!$recommended) {
+            return $this->render('recommended', ['error' => ['No results yet!', 'No data in Database', ' ']]);
+        }
+
+        $this->render('recommended', ['recommended' => $recommended]);
     }
 }

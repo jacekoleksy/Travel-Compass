@@ -33,19 +33,28 @@
                     <button type="button" value=2 name="opinion">Strongly Agree</button>
                 </div>
                 <div class="range">
-                    <label>1000zł</label>
-                    <input type="range" class="styled-slider slider-progress range1" name="range" min=1000 max=5500 oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
-                    <label>5500zł</label>
+                    <label id="minlabel"><?php echo $value_w ?>$</label>
+                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo $value_w ?> max=<?php echo $value_h ?> value=<?php echo (($value_w+$value_h)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
+                    <label id="maxlabel"><?php echo $value_h ?>$</label>
+                    <output class="output"></output>
+                    <script type="text/javascript" src="public/js/slider.js"></script> 
+                </div>
+                <div class="range2">
+                    <label id="minlabel"><?php echo $value_w2 ?>°C</label>
+                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo $value_w2 ?> max=<?php echo $value_h2 ?> value=<?php echo (($value_w2+$value_h2)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
+                    <label id="maxlabel"><?php echo $value_h2 ?>°C</label>
                     <output class="output"></output>
                     <script type="text/javascript" src="public/js/slider.js"></script> 
                 </div>
                 <div class="checkboxes">
-                    <h2>Checkboxes</h2>
+                    <button type="button" value=1 name="opinion"><?php echo $resultstype[0]['results_type'] ?></button>
+                    <button type="button" value=2 name="opinion"><?php echo $resultstype[1]['results_type'] ?></button>
+                    <button type="button" value=3 name="opinion"><?php echo $resultstype[2]['results_type'] ?></button>
                 </div>
                 <input type="hidden" name='answers'></input>
-                <button class="prev" type="button" name="prev" style="display:none">Previous</button>
+                <button class="prev" type="button" name="prev" style="display:none" value=1>Previous</button>
                 <a href="/compass"><button class="reset" type="button" name="reset">Reset</button></a>
-                <button class="next" type="button" name="next" style="display:none">Next</button>
+                <button class="next" type="button" name="next" value=1>Next</button>
             </form>
         </div>
     <?php include_once('footer.php'); ?>

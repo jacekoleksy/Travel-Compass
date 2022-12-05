@@ -30,21 +30,26 @@ body {
 .form {
     font-family: Avenir;
     margin-top: -50vh;
-    width: 80vw;
+    width: 80vw !important;
     height: 50vh;
     border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center;
 }
 .form > h1 {
     font-size: 5vh;
 }
 form > h2 {
     font-size: 3vh;
-    margin-bottom: 0;
+    margin: 0;
 }
 form > p {
     font-family: Ogonek-Regular;
     font-size: 1.8vh;
     min-height: 5vh;
+    padding: 0vh 20vw;
 }
 form > .buttons > button:nth-child(1), .reset  {
     background: transparent linear-gradient(120deg, #c04a4a 0%, #f61011 100%) 0% 0% no-repeat padding-box;
@@ -69,38 +74,48 @@ form > .buttons > button, button {
     min-width: 8vw;
     height: 5vh;
     margin: 1vh 0.5vw;
-    background-size: 200% auto !important;
+    background-size: 100% auto !important;
     transition: background-position 0.5s;
 }
 form > .buttons > button:hover {
     background-position: right center;
 }
-.buttons, .range, .checkboxes {
+.buttons, .range, .checkboxes, .range2 {
     display: none;
     min-height: 15vh;
 }
-form > .range > input[type=range] {
+form > .range > input[type=range], form > .range2 > input[type=range] {
     width: 15vw;
     margin-top: 2vh;
     background-repeat: no-repeat;
     border-radius: 1vh;
 } 
-form > .range > label {
+form > .range > label, form > .range2 > label {
     font-size: 4vh;
     padding: 0;
 }
-form > .range > label:nth-child(1) {
+form > .range > label:nth-child(1), form > .range2 > label:nth-child(1) {
     color: #fdc85f;
 }
-form > .range > label:nth-child(3) {
+form > .range > label:nth-child(3), form > .range2 > label:nth-child(3) {
     color: #eb3e65;
 }
-form > .range > output {
+form > .range > output, form > .range2 > output {
     position: absolute;
     font-size: 2.5vh;
     margin-top: 5vh;
     padding: 0.2vh 0.3vw 0.05vh 0.3vw;
     border-radius: 1vh;
+    width: 2vw;
+}
+.checkboxes > button:nth-child(1) {
+    background: transparent linear-gradient(120deg, #00bd60 0%, #00b8bd 100%) 0% 0% no-repeat padding-box;
+}
+.checkboxes > button:nth-child(2) {
+    background: transparent linear-gradient(120deg, #00b8bd 0%, #0060bd 100%) 0% 0% no-repeat padding-box;
+}
+.checkboxes > button:nth-child(3) {
+    background: transparent linear-gradient(120deg, #0060bd 0%, #005abd 100%) 0% 0% no-repeat padding-box;
 }
 
 input[type=range].styled-slider {

@@ -1,0 +1,9 @@
+.intro > .background > img {
+    margin-top: -10vh;
+}
+.results-map > iframe {
+    height: 50vh;
+}
+.results-map > .results-details {
+    height: 50vh;
+}
