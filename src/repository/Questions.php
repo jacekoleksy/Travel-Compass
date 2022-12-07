@@ -38,7 +38,7 @@ class Questions extends Repository
         return $numberofquesitons['description'];
     }
 
-    public function getWidthValue(int $idq): ?int
+    public function getWidthValue(int $idq): ?float
     {
         $stmt = $this->database->connect()->prepare('
             SELECT value_w FROM questions
@@ -52,7 +52,7 @@ class Questions extends Repository
         return $numberofquesitons['value_w'];
     }
 
-    public function getHeightValue(int $idq): ?int
+    public function getHeightValue(int $idq): ?float
     {
         $stmt = $this->database->connect()->prepare('
             SELECT value_h FROM questions

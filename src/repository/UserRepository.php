@@ -49,8 +49,12 @@ class UserRepository extends Repository
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.users WHERE email = :email AND password = :password
         ');
-        $stmt->bindParam(':email', $user->getEmail(), PDO::PARAM_STR);
-        $stmt->bindParam(':password', $user->getPassword(), PDO::PARAM_STR);
+        
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
         $stmt->execute();
 
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -172,7 +176,7 @@ class UserRepository extends Repository
     public function showRecommended() {
         $stmt = $this->database->connect()->prepare('
             SELECT results.id_results as id, results.name as name, country.name as country, (country.price + country.price_rent) as price, results.value_w as value_w, country.temperature as temperature, results.description as description, results.map as map from results join country on results.id_country = country.id_country
-            order by id_results asc;
+            order by recommended, random();
         ');
 
         $stmt->execute();

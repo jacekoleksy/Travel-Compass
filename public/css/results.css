@@ -134,11 +134,11 @@ body {
 .results-map {
     display: none;
 }
-.results-map[id="active"] {
+.results-map[id="active-map"] {
     display: flex !important;
 }
 .results-map > iframe {
-    width: 53vw;
+    width: 53.3vw;
     height: 70vh;
     border: none;
 }

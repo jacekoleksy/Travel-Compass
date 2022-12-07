@@ -33,16 +33,16 @@
                     <button type="button" value=2 name="opinion">Strongly Agree</button>
                 </div>
                 <div class="range">
-                    <label id="minlabel"><?php echo $value_w ?>$</label>
-                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo $value_w ?> max=<?php echo $value_h ?> value=<?php echo (($value_w+$value_h)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
-                    <label id="maxlabel"><?php echo $value_h ?>$</label>
+                    <label id="minlabel"><?php echo ceil($value_w) ?>$</label>
+                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo ceil($value_w) ?> max=<?php echo floor($value_h) ?> value=<?php echo (($value_w+$value_h)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
+                    <label id="maxlabel"><?php echo floor($value_h) ?>$</label>
                     <output class="output"></output>
                     <script type="text/javascript" src="public/js/slider.js"></script> 
                 </div>
                 <div class="range2">
-                    <label id="minlabel"><?php echo $value_w2 ?>°C</label>
-                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo $value_w2 ?> max=<?php echo $value_h2 ?> value=<?php echo (($value_w2+$value_h2)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
-                    <label id="maxlabel"><?php echo $value_h2 ?>°C</label>
+                    <label id="minlabel"><?php echo ceil($value_w2) ?>°C</label>
+                    <input type="range" class="styled-slider slider-progress range1" name="range" min=<?php echo ceil($value_w2) ?> max=<?php echo floor($value_h2) ?> value=<?php echo (($value_w2+$value_h2)/2) ?> oninput="setBubble(this, document.getElementsByClassName('output')[0])"></input>
+                    <label id="maxlabel"><?php echo floor($value_h2) ?>°C</label>
                     <output class="output"></output>
                     <script type="text/javascript" src="public/js/slider.js"></script> 
                 </div>

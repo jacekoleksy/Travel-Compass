@@ -150,8 +150,13 @@ span > .in {
     display: inline-flex;
     align-items: center;
     justify-content: left;
-    width: 15vw;
     height: 6vh;
+}
+.nav > a:nth-child(2) {
+    width: 7vw;
+}
+.nav > a:nth-child(2) > p {
+    text-align: left;
 }
 .nav > a:nth-child(3) {
     display: inline-flex;
@@ -162,6 +167,13 @@ span > .in {
 }
 .nav > a:nth-child(1) > p {
     padding-left: 0.3vw;
+}
+.nav > #nav-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 0;
+    width: 9vw;
 }
 .nav > a > #logo {
     padding: 2vh 0.5vw;

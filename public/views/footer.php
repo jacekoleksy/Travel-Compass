@@ -32,5 +32,10 @@
     <a href="/about_us"><p>ABOUT</p></a>
     <a href="/compass"><p>RESULTS</p></a>
     <a href="/recommended"><p>DESTINATIONS</p></a>
-    <a href="/login"><p>SIGN IN</p></a>
+    <?php if (!isset($_SESSION['user'])) { ?>
+        <a href="/login"><p>SIGN IN</p></a>
+    <?php } else { ?>
+        <a href="/settings"><p>SETTINGS</p></a>
+        <a href="/logout"><p>LOG OUT</p></a>
+    <?php } ?>
 </div>

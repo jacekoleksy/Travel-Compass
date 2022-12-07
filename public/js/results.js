@@ -14,7 +14,7 @@ async function nextResult(){
         result = 0;
     results[result].setAttribute("id", "active");
     backgrounds[result].setAttribute("id", "active-bcg");
-    details[result].setAttribute("id", "active");
+    details[result].setAttribute("id", "active-map");
 }
 function delay(milliseconds){
     return new Promise(resolve => {

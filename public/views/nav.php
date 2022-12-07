@@ -2,7 +2,7 @@
     <!-- <div>
         <img id="logo" src="public/img/logo_mini.png">
     </div> -->
-    <a href="index"><img id="logo" src="public/img/logo_mini.png"><p>Compass</p></a>
+    <a href="compass"><img id="logo" src="public/img/logo_mini.png"></a><a href="index"><p>Compass</p></a>
     <div class="nav-rest">
         <a href="/about_us"><p>About&nbsp;Us</p></a>
         <a href="/results"><p>Results</p></a>

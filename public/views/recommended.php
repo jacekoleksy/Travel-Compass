@@ -49,7 +49,7 @@
                             <h1><?php echo strtoupper($recommend['name']) ?></h1>
                             <h1><?php echo strtoupper($recommend['country']) ?></h1>
                             <p><?php echo $recommend['description'] ?></p>
-                            <a href="#results-map"><button type="button" name="data">PLAN YOUR TRIP</button></a>
+                            <a href="#active-map"><button type="button" name="data">PLAN YOUR TRIP</button></a>
                         </div>
                         <?php $count += 1; }} else { ?>
                         <div class="data" id='active'>
@@ -62,7 +62,7 @@
         $count = 0;
         foreach ($recommended as $recommend) { ?>
             <?php if ($count == 0) { ?>
-                    <div class="results-map" id="active">
+                    <div class="results-map" id="active-map">
                 <?php } else { ?>
                     <div class="results-map" id="results-map">
                 <?php } ?>    
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             <?php $count += 1; }} else { ?>
-                <div class="results-map" id="active">
+                <div class="results-map" id="active-map">
                     <iframe style="filter: invert(90%)" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23747775.914912067!2d27.652760064111348!3d43.400052381403775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spl!4v1670270340398!5m2!1sen!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="results-details" id='active'>
                         <h1><?php echo $error[0] ?></h1>
@@ -102,9 +102,7 @@
                     </div>
                 </div>
         <?php } ?>
-    <div class="container">
-        <div class='no-results'><h1><?php echo $error[0] ?></h1>
-        <h2><?php echo $error[1]?><a href='/compass'><?php echo $error[2]?></a></h2></div> 
+    <div class="container"> 
     <?php include_once('footer.php'); ?>
     <script type="text/javascript" src="public/js/results.js"></script> 
     <script type="text/javascript" src="public/js/slider.js"></script> 
