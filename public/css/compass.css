@@ -77,6 +77,9 @@ form > .buttons > button, button {
     background-size: 100% auto !important;
     transition: background-position 0.5s;
 }
+form > .buttons {
+    justify-content: center;
+}
 form > .buttons > button:hover {
     background-position: right center;
 }
@@ -204,5 +207,62 @@ input[type=range].styled-slider.slider-progress::-ms-fill-lower {
     background: linear-gradient(to right, #FDC85F, #EB3E65);
     border: none;
     border-right-width: 0;
+}
+
+@media only screen and (max-device-width: 1050px) {
+    .current_title {
+        padding: 0vh 5vw;
+    }
+    form > .range > output, form > .range2 > output {
+        width: 7vw;
+        margin-left: -3vw;
+    }
+    button {
+        width: 22vw;
+    }
+    .buttons > button {
+        margin: 0.8vh 0.8vh !important;
+    }
+    .buttons {
+        align-items: center;
+    }
+    form > .buttons {
+        flex-direction: column;
+    }
+    input[type=range] {
+        width: 25vw !important;
+        margin: 0vh 1vw;
+    }
+    .container > h2 {
+        margin-top: 8vh;
+    }
+    .container > p {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-device-width: 420px) {
+    .form {
+        margin-top: -50vh;
+    }
+    button {
+        width: 25vw;
+    }
+    .buttons > button {
+        width: 40vw;
+    }
+    input[type=range] {
+        width: 45vw !important;
+    }
+    .range, .range2 {
+        width: 100vw;
+    }
+    form > .range > output, form > .range2 > output {
+        width: 10vw;
+        margin-left: -3vh;
+    }
+    label {
+        width: 10vw;
+    }
 }
   

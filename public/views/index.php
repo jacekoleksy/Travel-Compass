@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/nav.css">
     <link rel="stylesheet" type="text/css" href="public/css/index.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Travell Compass</title>
 </head>
 

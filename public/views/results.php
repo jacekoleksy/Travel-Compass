@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/results.css"> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://kit.fontawesome.com/d4ded950a9.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Travell Compass</title>
 </head>
 
@@ -112,7 +113,7 @@
                         </table>
                         <p>
                             Remember that our data is based on users experience, experts opinion and it's not always 100% reliable. At the end everything depends on you and your decisions.&nbsp;
-                            Your place of living and transportation price is also very important, and it can the influence final price of your vacation.
+                            Your place of living and transportation price is also very important, and it can influence the final price of your vacation.
                         </p>
                     </div>
                 </div>

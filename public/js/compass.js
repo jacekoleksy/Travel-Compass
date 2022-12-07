@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', async function(){
           document.querySelector(".next").style.display = "none";
           if (type == "range" || type == "range2") {
             document.querySelector(".next").style.display = "inline-block";
+          } else if (type == "buttons") {
+            document.querySelector("."+type).style.display = "flex";
           }
       })
   })  
@@ -64,6 +66,8 @@ document.addEventListener('DOMContentLoaded', async function(){
       document.querySelector("."+type).style.display = "block";
       if (type != "buttons") {
         document.querySelector(".next").style.display = "inline-block";
+      } else {
+        document.querySelector("."+type).style.display = "flex";
       }
 
       if (currentQuestion <= 0) {

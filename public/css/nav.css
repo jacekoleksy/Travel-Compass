@@ -70,6 +70,9 @@ body {
     align-items: center;
     z-index: 1;
 }
+.nav-mobile {
+    display: none;
+}
 
 /* Nav Animation */
 span {
@@ -132,7 +135,7 @@ span > .in {
     }
 }
 .nav > .nav-rest {
-    width: 80vw;
+    width: 62vw;
     display: inline-flex;
     justify-content: center;
 }
@@ -153,7 +156,7 @@ span > .in {
     height: 6vh;
 }
 .nav > a:nth-child(2) {
-    width: 7vw;
+    width: 15vw;
 }
 .nav > a:nth-child(2) > p {
     text-align: left;
@@ -173,7 +176,7 @@ span > .in {
     align-items: center;
     justify-content: right;
     margin-right: 0;
-    width: 9vw;
+    width: 20vw;
 }
 .nav > a > #logo {
     padding: 2vh 0.5vw;
@@ -190,9 +193,32 @@ span > .in {
     margin-bottom: 0;
 } 
 @media only screen and (max-device-width: 1050px) {
+    .nav {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(0.5vw); 
+        margin-top: 0;
+    }
+    .nav > a:nth-child(2) {
+        width: 13vw;
+    }
+    .nav > #nav-login {
+        width: 18vw !important;
+    }
+    .nav > #nav-login > p {
+        width: 12vw;
+        text-align: right;
+        padding: 0vh 0.5vw;
+    }
+    .nav-rest {
+        width: 60vw !important;
+    }
     .nav > a > #logo {
         width: 7vw;
     }
+    .nav > a > #user {
+        width: 6vw;
+        padding: 0;
+    } 
 }
 .nav > a > #logo:hover {
     transform: rotate(2.2turn);
@@ -290,6 +316,51 @@ span > .in {
     }
 }
 @media only screen and (max-device-width: 420px) {
+    .nav {
+        display: none;
+    }
+    .nav-mobile {
+        height: 7vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        backdrop-filter: blur(0.3vw); 
+        background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 80%);
+        z-index: 2;
+    }
+    .nav-mobile > #bars, .nav-mobile > #user {
+        width: 50vw;
+    }
+    .nav-mobile > #user {
+        display: flex;
+        justify-content: right;
+    }
+    .nav-mobile > #bars > img {
+        width: 16vw;
+    }
+    .nav-mobile > #user > a > img {
+        width: 10vw;
+        margin-right: 3vw;
+    }
+    #menu-bars {
+        position: fixed;
+        display: none;
+        width: 100vw;
+        background-color: black;
+        margin-top: 49.32vh;
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 1) 80%);
+        backdrop-filter: blur(10vw); 
+    }
+    #menu-bars > a {
+        color: white;
+        font-size: 5vh;
+        width: 100vw;
+        text-align: center;
+    }
+    #menu-bars > a > p {
+        margin: 2vh 0vw;
+    }
     .container > .result > div {
         width: 150vw !important;
         height: 30vh;
@@ -391,6 +462,7 @@ span > .in {
 .footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 1vh;
     font-family: Ogonek-Regular;
 }
@@ -420,6 +492,9 @@ span > .in {
     }
     .footer > p {
         width: 30%;
+    }
+    .footer > a > p {
+        font-size: 1.3vh !important;
     }
 }
 .footer > a > p {
@@ -452,6 +527,6 @@ span > .in {
         font-size: 1vh;
     }
     .footer > a > p {
-        font-size: 1.3vh;
+        font-size: 1vh !important;
     }
 }
