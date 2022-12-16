@@ -19,6 +19,7 @@ Router::post('results', 'SecurityController');
 Router::post('recommended', 'SecurityController');
 Router::post('answer', 'QuestionsController');
 Router::post('login', 'SecurityController');
+Router::post('admin', 'AdminController');
 Router::post('register', 'SecurityController');
 Router::post('logout', 'SecurityController');
 

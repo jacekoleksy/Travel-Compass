@@ -84,9 +84,20 @@ class QuestionsController extends AppController
         $_SESSION['formtype'] = 'Fast';
 
         $this->cookieNotExists();
-        $this->cookieExists();
+        //$this->cookieExists();
 
-        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+        $this->render('compass', [
+            'currentquestion' => $_SESSION['questionnumber'],
+            'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
+            'value_h2' => $this->questions->getHeightValue(2),
+            'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
+            'value_w2' => $this->questions->getWidthValue(2),
+            'questionnum' => $this->questions->getNumberOfQuestions(),
+            'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
+            'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),
+            'resultstype' => $this->questions->getResultsType(),
+            'formtype' => $_SESSION['formtype']
+        ]);
     }
 
     public function standardform()
@@ -98,9 +109,20 @@ class QuestionsController extends AppController
         $_SESSION['formtype'] = 'Standard';
 
         $this->cookieNotExists();
-        $this->cookieExists();
+        //$this->cookieExists();
 
-        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+        $this->render('compass', [
+            'currentquestion' => $_SESSION['questionnumber'],
+            'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
+            'value_h2' => $this->questions->getHeightValue(2),
+            'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
+            'value_w2' => $this->questions->getWidthValue(2),
+            'questionnum' => $this->questions->getNumberOfQuestions(),
+            'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
+            'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),
+            'resultstype' => $this->questions->getResultsType(),
+            'formtype' => $_SESSION['formtype']
+        ]);
     }
 
     public function accurateform()
@@ -112,9 +134,20 @@ class QuestionsController extends AppController
         $_SESSION['formtype'] = 'Accurate';
 
         $this->cookieNotExists();
-        $this->cookieExists();
+        //$this->cookieExists();
 
-        $this->render('compass', ['currentquestion' => $_SESSION['questionnumber'], 'questionnum' => $this->questions->getNumberOfQuestions(), 'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']), 'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']), 'formtype' => $_SESSION['formtype']]);
+        $this->render('compass', [
+            'currentquestion' => $_SESSION['questionnumber'],
+            'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
+            'value_h2' => $this->questions->getHeightValue(2),
+            'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
+            'value_w2' => $this->questions->getWidthValue(2),
+            'questionnum' => $this->questions->getNumberOfQuestions(),
+            'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
+            'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),
+            'resultstype' => $this->questions->getResultsType(),
+            'formtype' => $_SESSION['formtype']
+        ]);
     }
 
     public function questions()

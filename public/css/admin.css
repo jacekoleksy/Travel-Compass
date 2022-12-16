@@ -1,0 +1,16 @@
+td, th {
+    border: 0.1vh solid white;
+}
+table {
+    width: 80vw;
+    margin: 0;
+    padding: 0;
+    border-spacing:0; 
+    border-collapse: collapse;
+}
+input {
+    width: 5vw;
+}
+tr:hover {
+    background-color: gray;
+}
