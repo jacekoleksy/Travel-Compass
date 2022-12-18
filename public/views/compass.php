@@ -52,6 +52,9 @@
                     <button type="button" value=2 name="opinion"><?php echo $resultstype[1]['results_type'] ?></button>
                     <button type="button" value=3 name="opinion"><?php echo $resultstype[2]['results_type'] ?></button>
                 </div>
+                <div class="months">
+                    <input type="month" name="month" value="2022-05"></input>
+                </div>
                 <input type="hidden" name='answers'></input>
                 <button class="prev" type="button" name="prev" style="display:none" value=1>Previous</button>
                 <a href="/compass"><button class="reset" type="button" name="reset">Reset</button></a>

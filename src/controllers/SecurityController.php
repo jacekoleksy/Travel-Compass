@@ -55,9 +55,10 @@ class SecurityController extends AppController {
         $_SESSION["user"] = $email;
         $_SESSION["name"] = $user->getName();
         $_SESSION["surname"] = $user->getSurname();
+        $_SESSION["admin"] = $user->getAdmin();
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/compass");
+        header("Location: {$url}/".$_SESSION['page']);
     }
     
     public function register()
@@ -113,7 +114,7 @@ class SecurityController extends AppController {
     public function settings()
     {
         $_SESSION["questionnumber"] = 1;
-        $this->cookieNotExists();
+        $this->cookieNotExists('settings');
 
         $this->render('settings');
     }
@@ -124,7 +125,7 @@ class SecurityController extends AppController {
             return $this->render('settings');
         }
 
-        $this->cookieNotExists();
+        $this->cookieNotExists('settings_action');
 
         $email = $_POST['settings-email'];
         $password = $_POST['settings-password'];
@@ -188,12 +189,12 @@ class SecurityController extends AppController {
         }
 
         $_SESSION["questionnumber"] = 1;
-        $this->cookieNotExists();
+        $this->cookieNotExists('results');
 
         $results = $this->userRepository->showResult($_SESSION["user"]);
 
         if (!$results) {
-            return $this->render('results', ['error' => ['No results', 'yet!', 'You need to complete Compass form first!']]);
+            return $this->render('results', ['error' => ['No results', 'yet!', 'You need to complete <a href="/compass">Compass form</a> first!']]);
         }
 
         unset($_SESSION['send']);
@@ -203,7 +204,7 @@ class SecurityController extends AppController {
 
     public function recommended()
     {
-        $this->cookieNotExists();
+        $this->cookieNotExists('recommended');
 
         $recommended = $this->userRepository->showRecommended($_SESSION["user"]);
 

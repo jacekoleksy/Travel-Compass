@@ -83,7 +83,7 @@ form > .buttons {
 form > .buttons > button:hover {
     background-position: right center;
 }
-.buttons, .range, .checkboxes, .range2 {
+.buttons, .range, .checkboxes, .range2, .months {
     display: none;
     min-height: 15vh;
 }

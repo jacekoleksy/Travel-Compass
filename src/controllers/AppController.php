@@ -43,11 +43,16 @@ class AppController
         }
     }
 
-    protected function cookieNotExists()
+    protected function cookieNotExists(string $page = 'compass')
     {
         if (!isset($_SESSION['user'])) {
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/login");
         }
+
+        if (!isset($_SESSION)){
+            session_start();
+        }
+        $_SESSION['page'] = $page;
     }
 }

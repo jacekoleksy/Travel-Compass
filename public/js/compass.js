@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', async function(){
   const span = document.querySelector('.current_question');
   buttons.forEach(element => {
       element.addEventListener('click', function(){
+        alert(questionAnswer);
           if(element.getAttribute("name") == "next")
               if(questionAnswer.length == 0) 
                   value = document.querySelector('.range > input[type="range"]').value;
-              else 
+              else if(questionAnswer.length == 4) 
                   value = document.querySelector('.range2 > input[type="range"]').value;
+              else 
+                value = document.querySelector('.months > input[type="month"]').value;
           else {
               value = element.value;
           }
@@ -41,10 +44,11 @@ document.addEventListener('DOMContentLoaded', async function(){
           document.querySelector(".buttons").style.display = "none";
           document.querySelector(".range").style.display = "none";
           document.querySelector(".range2").style.display = "none";
+          document.querySelector(".months").style.display = "none";
           document.querySelector(".checkboxes").style.display = "none";
           document.querySelector("."+type).style.display = "block";
           document.querySelector(".next").style.display = "none";
-          if (type == "range" || type == "range2") {
+          if (type == "range" || type == "range2" || type == "months") {
             document.querySelector(".next").style.display = "inline-block";
           } else if (type == "buttons") {
             document.querySelector("."+type).style.display = "flex";
@@ -61,6 +65,7 @@ document.addEventListener('DOMContentLoaded', async function(){
       document.querySelector(".buttons").style.display = "none";
       document.querySelector(".range").style.display = "none";
       document.querySelector(".range2").style.display = "none";
+      document.querySelector(".months").style.display = "none";
       document.querySelector(".checkboxes").style.display = "none";
       document.querySelector(".next").style.display = "none";
       document.querySelector("."+type).style.display = "block";

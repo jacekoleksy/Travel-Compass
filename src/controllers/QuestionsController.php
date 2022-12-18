@@ -19,7 +19,7 @@ class QuestionsController extends AppController
 
     public function compass()
     {
-        $this->cookieNotExists();
+        $this->cookieNotExists("results");
 
         if (!isset($_SESSION)) {
             session_start();
@@ -40,13 +40,15 @@ class QuestionsController extends AppController
 
                 if ($key == 0)
                     $_SESSION['price'] = intval($answers[$key]) * 31;
-                else if ($key == 1)
-                    $_SESSION['temperature'] = intval($answers[$key]);
-                else if ($key == 2)
+                else if ($key == `2`)
                     $_SESSION['results_t'] = intval($answers[$key]);
-                else if ($key == 3) {
+                else if ($key == 2) {
                     if (intval($answers[$key]) <= 0)
                         $_SESSION['results_t'] = 0;
+                } else if ($key == 3) {
+                    $_SESSION['month'] = intval(substr($answers[$key], -2));
+                } else if ($key == 4) {
+                    $_SESSION['temperature'] = intval($answers[$key]);
                 } else {
                     $_SESSION['value_h'] += intval($answers[$key]) * $quest['value_h'];
                     $_SESSION['value_w'] += intval($answers[$key]) * $quest['value_w'];
@@ -64,9 +66,9 @@ class QuestionsController extends AppController
         return $this->render('compass', [
             'currentquestion' => $_SESSION['questionnumber'],
             'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
-            'value_h2' => $this->questions->getHeightValue(2),
+            'value_h2' => $this->questions->getHeightValue(5),
             'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
-            'value_w2' => $this->questions->getWidthValue(2),
+            'value_w2' => $this->questions->getWidthValue(5),
             'questionnum' => $this->questions->getNumberOfQuestions(),
             'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
             'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),
@@ -89,9 +91,9 @@ class QuestionsController extends AppController
         $this->render('compass', [
             'currentquestion' => $_SESSION['questionnumber'],
             'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
-            'value_h2' => $this->questions->getHeightValue(2),
+            'value_h2' => $this->questions->getHeightValue(5),
             'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
-            'value_w2' => $this->questions->getWidthValue(2),
+            'value_w2' => $this->questions->getWidthValue(5),
             'questionnum' => $this->questions->getNumberOfQuestions(),
             'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
             'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),
@@ -114,9 +116,9 @@ class QuestionsController extends AppController
         $this->render('compass', [
             'currentquestion' => $_SESSION['questionnumber'],
             'value_h' => $this->questions->getHeightValue($_SESSION['questionnumber']),
-            'value_h2' => $this->questions->getHeightValue(2),
+            'value_h2' => $this->questions->getHeightValue(5),
             'value_w' => $this->questions->getWidthValue($_SESSION['questionnumber']),
-            'value_w2' => $this->questions->getWidthValue(2),
+            'value_w2' => $this->questions->getWidthValue(5),
             'questionnum' => $this->questions->getNumberOfQuestions(),
             'questiontitle' => $this->questions->getQuestionTitle($_SESSION['questionnumber']),
             'questiontype' => $this->questions->getQuestionType($_SESSION['questionnumber']),

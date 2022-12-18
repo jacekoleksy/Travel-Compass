@@ -25,15 +25,16 @@ class UserRepository extends Repository
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['admin']
         );
     }
 
     public function addUser(User $user)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO users (name, surname, email, password)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO users (name, surname, email, password, admin)
+            VALUES (?, ?, ?, ?, ?)
         ');
 
         $stmt->execute([
@@ -41,6 +42,7 @@ class UserRepository extends Repository
             $user->getSurname(),
             $user->getEmail(),
             $user->getPassword(),
+            0
         ]);
     }
 
@@ -102,24 +104,19 @@ class UserRepository extends Repository
         else 
             $value_w = $_SESSION['value_w'];
 
-        $value_w = $value_w / 3;
-        $price = $_SESSION['price'] * (1 - (0.3 * $value_h / 30));
+        if($_SESSION['formtype'] == 'Accurate') {
+            $value_w = $value_w / 3;
+            $price = $_SESSION['price'] * (1 - (0.3 * $value_h / 35));
+        }
+        else {
+            $value_w = $value_w / 1.4;
+            $price = $_SESSION['price'] * (1 - (0.3 * $value_h / 12));
+        }
         
         if($_SESSION['results_t'] == 0) {
             $stmt = $this->database->connect()->prepare('
-            select r.id_results, r.name, (abs(((c.price+c.price_rent) - (?)) / 75) + abs(r.value_w - (?)) + abs((c.temperature - (?)))) as difference from results r join country c on r.id_country = c.id_country
-            order by difference asc limit 1;
-            ');
-
-            $stmt->execute([
-                $price,
-                $value_w,
-                $_SESSION['temperature']
-            ]);
-        }
-        else {
-            $stmt = $this->database->connect()->prepare('
-            select r.id_results, r.name, (abs(((c.price+c.price_rent) - (?)) / 75) + abs(r.value_w - (?)) + abs((c.temperature - (?)))) as difference from results r join country c on r.id_country = c.id_country where r.id_results_types = (?)
+            select r.id_results, r.name, (abs(((c.price+c.price_rent) - (?)) / 75) + abs(r.value_w - (?)) + abs((c.temperature - (?)))) as difference from results r join country c on r.id_country = c.id_country join temperature temp on r.id_results = temp.id_results
+            where temp.month = (?)
             order by difference asc limit 1;
             ');
 
@@ -127,7 +124,22 @@ class UserRepository extends Repository
                 $price,
                 $value_w,
                 $_SESSION['temperature'],
-                $_SESSION['results_t']
+                $_SESSION['month']
+            ]);
+        }
+        else {
+            $stmt = $this->database->connect()->prepare('
+            select r.id_results, r.name, (abs(((c.price+c.price_rent) - (?)) / 75) + abs(r.value_w - (?)) + abs((c.temperature - (?)))) as difference from results r join country c on r.id_country = c.id_country join temperature temp on r.id_results = temp.id_results
+            where r.id_results_types = (?) and temp.month = (?)
+            order by difference asc limit 1;
+            ');
+
+            $stmt->execute([
+                $price,
+                $value_w,
+                $_SESSION['temperature'],
+                $_SESSION['results_t'],
+                intval($_SESSION['month'])
             ]);
         }
 
@@ -136,8 +148,8 @@ class UserRepository extends Repository
         $id_result = $data['id_results'];
 
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO users_results (id_users, value_h, value_w, price, temperature, id_results, id_results_types)
-            VALUES (?, ?, ?, ?, ?, ?, ?);
+            INSERT INTO users_results (id_users, value_h, value_w, price, temperature, id_results, id_results_types, month)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?);
         ');
 
         $stmt->execute([
@@ -147,7 +159,8 @@ class UserRepository extends Repository
             $_SESSION['price'],
             $_SESSION['temperature'],
             $id_result,
-            $_SESSION['results_t']
+            $_SESSION['results_t'],
+            $_SESSION['month']
         ]);
     }
 

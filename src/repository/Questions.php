@@ -7,9 +7,9 @@ class Questions extends Repository
     public function getNumberOfQuestions(): ?int
     {
         if ($_SESSION['formtype'] == 'Fast') 
-            $number = 4;
+            $number = 5;
         else if ($_SESSION['formtype'] == 'Standard')
-            $number = 10;
+            $number = 11;
         else {
             $stmt = $this->database->connect()->prepare('
                 SELECT count(*) FROM questions
