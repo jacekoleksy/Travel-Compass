@@ -9,7 +9,7 @@ table {
     border-collapse: collapse;
 }
 input {
-    width: 3vw;
+    width: 6vw;
 }
 tr:hover {
     background-color: gray;

@@ -120,6 +120,13 @@ form > .range > output, form > .range2 > output {
 .checkboxes > button:nth-child(3) {
     background: transparent linear-gradient(120deg, #0060bd 0%, #005abd 100%) 0% 0% no-repeat padding-box;
 }
+input[type=month] {
+    width: 12vw;
+    font-size: 1.5vh;
+    font-family: 'Ogonek-Regular';
+    border: none;
+    background: linear-gradient(to right, #00b8bd, #005abd) 100% no-repeat, #FFFFFF00;
+}
 
 input[type=range].styled-slider {
     -webkit-appearance: none;

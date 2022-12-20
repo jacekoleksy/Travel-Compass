@@ -47,6 +47,8 @@ class QuestionsController extends AppController
                         $_SESSION['results_t'] = 0;
                 } else if ($key == 3) {
                     $_SESSION['month'] = intval(substr($answers[$key], -2));
+                    if($_SESSION['month'] == null) 
+                        $_SESSION['month'] = 6;
                 } else if ($key == 4) {
                     $_SESSION['temperature'] = intval($answers[$key]);
                 } else {
