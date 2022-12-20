@@ -77,19 +77,19 @@
                             </tr>
                             <tr>  
                                 <td><h1>Activity factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_w'] ?>></input></td>
+                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_w'] ?>></input><?php echo (($result['user_value_w']+10)*5)."%" ?></td>
                             </tr>
                             <tr>  
                                 <td><h1>Price factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_h'] ?>></input></td>
+                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['user_value_h'] ?>></input><?php echo ($result['user_value_h']*10*0.3)."%" ?></td>
                             </tr>
                             <tr>  
-                                <td><h1>Target temperature:</h1></td>
-                                <td class="table-data"><h1 id="temperature"><?php echo $result['user_temperature'] ?></h1></td>
+                                <td><h1>Your temperature:</h1></td>
+                                <td class="table-data"><h1 id="temperature"><?php echo $result['user_temperature']."°C in ".$result['month'] ?></h1></td>
                             </tr>
                             <tr>  
-                                <td><h1>Target price:</h1></td>
-                                <td class="table-data"><h1 id="price"><?php echo $result['user_price'] ?></h1></td>
+                                <td><h1>Target price per month:</h1></td>
+                                <td class="table-data"><h1 id="price"><?php echo $result['user_price']."$" ?></h1></td>
                             </tr>
                         </table>
                         <table>
@@ -100,15 +100,15 @@
                             </tr>
                             <tr>  
                                 <td><h1>Activity factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['result_value_w'] ?>></input></td>
+                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $result['result_value_w'] ?>></input><?php echo (($result['result_value_w']+10)*5)."%" ?></td>
                             </tr>
                             <tr>  
-                                <td><h1>Result temperature:</h1></td>
-                                <td class="table-data"><h1 id="temperature"><?php echo $result['result_temperature'] ?></h1></td>
+                                <td><h1>Average temperature:</h1></td>
+                                <td class="table-data"><h1 id="temperature"><?php echo $result['result_temperature']."°C in ".$result['month'] ?></h1></td>
                             </tr>
                             <tr>  
-                                <td><h1>Result price:</h1></td>
-                                <td class="table-data"><h1 id="price"><?php echo $result['result_price'] ?></h1></td>
+                                <td><h1>Average price per month:</h1></td>
+                                <td class="table-data"><h1 id="price"><?php echo $result['result_price']."$" ?></h1></td>
                             </tr>
                         </table>
                         <p>

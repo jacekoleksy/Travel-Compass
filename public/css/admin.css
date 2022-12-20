@@ -9,7 +9,7 @@ table {
     border-collapse: collapse;
 }
 input {
-    width: 5vw;
+    width: 3vw;
 }
 tr:hover {
     background-color: gray;
@@ -19,13 +19,18 @@ form {
     justify-content: center;
     align-items: center;
 }
+form:nth-child(2) {
+    flex-direction: column;
+}
+form:nth-child(2) > button {
+    margin-top: 2vh;
+}
 button {
     font-family: Ogonek-Regular;
     letter-spacing: 0.1vw;
     font-size: 1.5vh;
     border: none;
     min-width: 8vw;
-    width: 100%;
     min-height: 5vh;
     padding: 0.5vh 0.5vw;
     transition: 0.5s;
@@ -43,10 +48,10 @@ button {
 }
 select {
     margin-right: 1vw;
+    font-size: 2vh;
 }
 #temp {
     margin-top: 2vh;
-    margin-right: 1vw;
 }
 #temp > tbody > tr > td > input {
     width: 2.5vw;
@@ -54,9 +59,18 @@ select {
 #temp > tbody > tr > th {
     padding: 0vh 1.3vw;
 }
+td, th, input {
+    font-size: 2vh;
+}
 button:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+.cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

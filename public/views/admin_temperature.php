@@ -36,7 +36,7 @@
             <form method="POST">
                 <select id="country" name='country'>
                     <?php foreach ($countries as $country) { ?>
-                        <option value=<?php echo $country['id_results'].">".$country['name'] ?></option>
+                        <option value=<?php echo $country['id_results'] ?>><?php echo $country['name']." (".$country['id_results'].")" ?></option>
                     <?php } ?>
                 </select>
                 <button name='temperature' type='submit'>Get temperatures</button>
@@ -71,7 +71,7 @@
                                         $p1 = str_replace(array('<>', '>', '<'), "|", $p1); 
                                         $pieces = explode("|", $p1);
                                 foreach ($temperatures as $key => $temperature) { 
-                                        echo "<td>".$temperatures[$key]['temp']."<input type='number' step=any name=".($key+1)." value=".$pieces[$key+1]."></input></td>"; 
+                                        echo "<td><div class='cell'>".$temperatures[$key]['temp']."<input type='number' step=any name=".($key+1)." value=".$pieces[$key+1]."></input></div></td>"; 
                                     // echo "<td><input type='number' name=".$temperature['month']." value=".$temperature['temperature']."></input></td>"; 
                                 } ?>
                             </tr>

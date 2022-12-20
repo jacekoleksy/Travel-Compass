@@ -168,11 +168,11 @@ class UserRepository extends Repository
         $user = $this->getUser($email);
         $id_user = $this->getUserId($user);
 
-        $stmt = $this->database->connect()->prepare('
-            SELECT users_results.id_users_results, users_results.id_results, users_results.value_w as user_value_w, results.value_w as result_value_w, users_results.value_h as user_value_h, users_results.price as user_price, (country.price + country.price_rent) as result_price, country.name as country, results.name, results.description, country.temperature as result_temperature, users_results.temperature as user_temperature, results.map as map from users_results 
-            inner join results on users_results.id_results = results.id_results join country on results.id_country = country.id_country
+        $stmt = $this->database->connect()->prepare("
+            SELECT users_results.id_users_results, users_results.id_results, users_results.value_w as user_value_w, results.value_w as result_value_w, users_results.value_h as user_value_h, users_results.price as user_price, (country.price + country.price_rent) as result_price, country.name as country, results.name, results.description, country.temperature as result_temperature, users_results.temperature as user_temperature, months.name as month, results.map as map from users_results 
+            inner join results on users_results.id_results = results.id_results join country on results.id_country = country.id_country join months on months.id_months = users_results.month
             WHERE id_users = :id_users order by users_results.id_users_results desc;
-        ');
+        ");
 
         $stmt->bindParam(':id_users', $id_user, PDO::PARAM_INT);
         $stmt->execute();

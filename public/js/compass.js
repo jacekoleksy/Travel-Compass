@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', async function(){
   const span = document.querySelector('.current_question');
   buttons.forEach(element => {
       element.addEventListener('click', function(){
-        alert(questionAnswer);
           if(element.getAttribute("name") == "next")
               if(questionAnswer.length == 0) 
                   value = document.querySelector('.range > input[type="range"]').value;

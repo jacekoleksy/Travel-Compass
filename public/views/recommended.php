@@ -77,15 +77,15 @@
                             </tr>
                             <tr>  
                                 <td><h1>Activity factor:</h1></td>
-                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $recommend['value_w'] ?>></input></td>
+                                <td><input type="range" class="styled-slider slider-progress range1" name="range" min=-10 max=10 value=<?php echo $recommend['value_w'] ?>></input><?php echo (($recommend['value_w']+10)*5)."%" ?></td>
                             </tr>
                             <tr>  
-                                <td><h1>Result temperature:</h1></td>
-                                <td class="table-data"><h1 id="temperature"><?php echo $recommend['temperature'] ?></h1></td>
+                                <td><h1>Average temperature:</h1></td>
+                                <td class="table-data"><h1 id="temperature"><?php echo "~ ".$recommend['temperature']."°C Annual" ?></h1></td>
                             </tr>
                             <tr>  
-                                <td><h1>Result price:</h1></td>
-                                <td class="table-data"><h1 id="price"><?php echo $recommend['price'] ?></h1></td>
+                                <td><h1>Average price per month:</h1></td>
+                                <td class="table-data"><h1 id="price"><?php echo $recommend['price']."$" ?></h1></td>
                             </tr>
                         </table>
                         <p>

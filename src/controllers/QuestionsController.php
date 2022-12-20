@@ -40,7 +40,7 @@ class QuestionsController extends AppController
 
                 if ($key == 0)
                     $_SESSION['price'] = intval($answers[$key]) * 31;
-                else if ($key == `2`)
+                else if ($key == 1) 
                     $_SESSION['results_t'] = intval($answers[$key]);
                 else if ($key == 2) {
                     if (intval($answers[$key]) <= 0)
