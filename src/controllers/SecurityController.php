@@ -34,11 +34,11 @@ class SecurityController extends AppController {
         $email = $_POST['login-email'];
         $password = $_POST['login-password'];
 
-        $user = $this->userRepository->getUser($email);
-
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $this->render('login', ['messages' => ["Wrong email type!"]]);
         }
+
+        $user = $this->userRepository->getUser($email);
 
         if (!$user) {
             return $this->render('login', ['messages' => ['User not found!']]);

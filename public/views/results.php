@@ -43,7 +43,7 @@
                         <div class="data">
                         <?php } ?>
                             <div class="temperature">
-                                <h3><?php echo intval($result['user_temperature']) ?>°C</h3>
+                                <h3><?php echo intval($result['result_temperature']) ?>°C</h3>
                                 <img src="public/img/sun_black.png">
                             </div>
                             <h1><?php echo strtoupper($result['name']) ?></h1>
